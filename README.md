@@ -74,6 +74,7 @@ A block is a list of statements grouped together. Blocks can be standalone, or u
 A context is a block with a specific functionality. Contexts may be any of the following:
 - map
 - player_lands
+- land
 - connect_all_lands
 - connect_all_players_land
 - connect_teams_lands
@@ -91,7 +92,6 @@ map {
 A function is a context that accepts an argument. Functions may be any of the following:
 - section
 - object
-- land
 - terrain
 - elevation
 
