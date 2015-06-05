@@ -75,7 +75,7 @@ A context is a block with a specific functionality. Contexts may be any of the f
 - map
 - player_lands
 - connect_all_lands
-- connect_all_player_lands
+- connect_all_players_land
 - connect_teams_lands
 - connect_same_land_zones
 - info
