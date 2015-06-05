@@ -50,6 +50,17 @@ Setting a constant maps a terrain or object numeric identifier to a label.
 ```
 const(EXAMPLE, 23)
 ```
+
+#### Attributes
+Attributes work the same as RMS, except values can also be variables.
+```
+set_some_attribute
+attribute_a 20
+attribute_b LABEL
+attribute_c LABEL 20 10
+attribute_d $example
+```
+
 #### Blocks
 A block is a list of statements grouped together. Blocks can be standalone, or used in conjunction with other components, like `if`, `map`, etc.
 ```
@@ -182,7 +193,7 @@ Substitution paired with an attribute
   $something = SOMETHING
   attribute $something // output: attribute SOMETHING
 ```
-Substitution in a def()
+Substitution in a `def`
 ```
 $label = EXAMPLE
 def($label) // output: #define EXAMPLE
