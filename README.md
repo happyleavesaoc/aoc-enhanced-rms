@@ -259,58 +259,7 @@ pack {
 ```
 The `pack` context makes it easy to pack multiple maps together. It will automatically compute equal chance per included map, and wrap each map in an appropriate `if` statement. Other statements can also be used in `pack`, but only `map` contexts will be manipulated.
 
-### Example
-
-```
-$grass = GRASS
-
-$gaia = {
-  set_gaia_object_only
-  set_place_for_every_player
-  set_loose_grouping
-}
-
-$arabia = map {
-  section(TERRAIN) {
-    chance(20%) {
-      set(TEMPERATE)
-    } chance(40%) {
-      set(DESERT)
-    } chance(10%) {
-      set(JUNGLE)
-    }
-    if(TEMPERATE or JUNGLE) {
-      terrain($grass) {
-        base_terrain $grass
-        land_percent 50
-      }
-    } else {
-      terrain(DIRT) {
-        base_terrain DIRT1
-        land_percent 50
-      }
-    }
-  }
-  section(OBJECTS) {
-    object(SHEEP) {
-      $gaia
-      number_of_objects 4
-    }
-  }
-}
-
-$baltic = map {
-  ...
-}
-
-pack {
-  $arabia
-  $baltic
-}
-
-```
-
-### Mapping
+### Equivalents
 
 ERMS | RMS
 --- | --- 
