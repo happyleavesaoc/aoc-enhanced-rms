@@ -1,0 +1,18 @@
+if(REGICIDE) {
+    object(VILLAGER) {
+        number_of_objects 7
+        set_place_for_every_player
+        min_distance_to_players 6
+        max_distance_to_players 6
+    }
+    object(KING) {
+        set_place_for_every_player
+        min_distance_to_players 6
+        max_distance_to_players 6 
+    }
+    object(CASTLE) {
+        set_place_for_every_player
+        min_distance_to_players 10
+        max_distance_to_players 10    
+    }
+}

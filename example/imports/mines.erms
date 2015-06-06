@@ -1,0 +1,133 @@
+$near_mine = {
+	number_of_objects 7
+	group_placement_radius 3
+	set_tight_grouping
+	set_gaia_object_only
+	set_place_for_every_player
+	min_distance_to_players 12
+	max_distance_to_players 16
+	min_distance_group_placement 7
+	max_distance_to_other_zones 7
+}
+
+$medium_mine = {
+	number_of_objects 4
+	group_placement_radius 3
+	set_tight_grouping
+	set_gaia_object_only
+	set_place_for_every_player
+	min_distance_to_players 18
+	max_distance_to_players 26
+	min_distance_group_placement 7
+	max_distance_to_other_zones 7
+}
+
+$far_mine = {
+	number_of_objects 4
+	group_placement_radius 3
+	set_tight_grouping
+	set_gaia_object_only
+	set_place_for_every_player
+	min_distance_to_players 25
+	max_distance_to_players 35
+	min_distance_group_placement 7
+	max_distance_to_other_zones 7
+}
+
+// tiny and small maps
+$extra_1 = {
+	number_of_groups 2
+	number_of_objects 3
+	group_placement_radius 2
+	set_tight_grouping
+	set_gaia_object_only
+	min_distance_to_players 40
+	min_distance_group_placement 9
+}
+
+// medium and large maps
+$extra_2 = {
+	number_of_groups 3
+	number_of_objects 3
+	group_variance 1
+	group_placement_radius 2
+	set_tight_grouping
+	set_gaia_object_only
+	min_distance_to_players 40
+	min_distance_group_placement 9
+}
+
+// huge and gigantic maps
+$extra_3 = {
+	number_of_groups 4
+	number_of_objects 4
+	group_variance 1
+	group_placement_radius 2
+	set_tight_grouping
+	set_gaia_object_only
+	min_distance_to_players 40
+	min_distance_group_placement 9
+}
+
+$gold = {
+	// create player gold
+	object(GOLD) {
+		$near_mine
+	}
+	object(GOLD) {
+		$medium_mine
+	}
+	object(GOLD) {
+		$far_mine
+	}
+	// create extra gold based on map size
+	if(TINY_MAP or SMALL_MAP) {
+		object(GOLD) {
+			$extra_1
+		}
+	}
+	if(MEDIUM_MAP or LARGE_MAP) {
+		object(GOLD) {
+			$extra_2
+		}
+	}
+	if(HUGE_MAP or GIGANTIC_MAP) {
+		object(GOLD) {
+			$extra_3
+		}
+	}
+}
+
+$stone = {
+	// create player stone
+	object(STONE) {
+		$near_mine
+	}
+	object(STONE) {
+		$medium_mine
+	}
+	object(STONE) {
+		$far_mine
+	}
+	// create extra stone based on map size
+	if(TINY_MAP or SMALL_MAP) {
+		object(STONE) {
+			$extra_1
+		}
+	}
+	if(MEDIUM_MAP or LARGE_MAP) {
+		object(STONE) {
+			$extra_2
+		}
+	}
+	if(HUGE_MAP or GIGANTIC_MAP) {
+		object(STONE) {
+			$extra_3
+		}
+	}
+}
+
+$mines = {
+	$gold
+	$stone
+}

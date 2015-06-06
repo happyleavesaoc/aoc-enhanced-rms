@@ -1,0 +1,12 @@
+import "watery_grave.erms"
+import "mystic_mountain.erms"
+
+pack {
+	info {
+		name "HappyLeaves' Example Map Pack"
+		description "This pack combines two maps as an example of Enhanced RMS"
+		$info
+	}
+	$watery_grave
+	$mystic_mountain
+}

@@ -1,0 +1,24 @@
+import "imports/regicide.erms"
+
+$player_start = {
+	object(TOWN_CENTER) {
+		set_place_for_every_player
+		group_placement_radius 18
+		min_distance_to_players 0
+		max_distance_to_players 0
+	}
+	object(VILLAGER)
+	{
+		set_place_for_every_player
+		min_distance_to_players 6
+		max_distance_to_players 6
+	}
+	object(SCOUT)
+	{
+		number_of_objects 1
+		set_place_for_every_player
+		min_distance_to_players 7
+		max_distance_to_players 9
+	}
+	$regicide
+}

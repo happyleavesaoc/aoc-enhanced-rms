@@ -1,0 +1,23 @@
+import "imports/animals.erms"
+import "imports/forage.erms"
+import "imports/mines.erms"
+import "imports/info.erms"
+import "imports/stragglers.erms"
+import "imports/player_start.erms"
+
+$player_section = {
+	section(PLAYER) {
+		random_placement
+	}
+}
+
+// be sure to define $stragger_type before referencing this
+$objects = {
+	$player_start
+	$standard_animals
+	if(not NO_FORAGE) {
+		$forage
+	}
+	$mines
+	$stragglers
+}

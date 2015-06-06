@@ -1,0 +1,56 @@
+$fish = {
+	chance(33%) {
+		def(GREAT_FISH)
+	} chance(33%) {
+		def(GOOD_FISH)
+	} chance(33%) {
+		def(BAD_FISH)
+	}
+	$fish_attributes = {
+		set_scaling_to_map_size
+		set_gaia_object_only
+		max_distance_to_other_zones 5
+		min_distance_group_placement 4
+	}
+	$basic_fish = {
+		$fish_attributes
+		if(GREAT_FISH){
+			number_of_objects 13
+		} elseif(GOOD_FISH) {
+			number_of_objects 7
+		} else {
+			number_of_objects 6
+		}
+	}
+	$marlin = {
+		$fish_attributes
+		if(GREAT_FISH){
+			number_of_objects 5
+		} elseif(GOOD_FISH) {
+			number_of_objects 4
+		} else {
+			number_of_objects 4
+		}
+	}
+	object(DORADO) {
+		$basic_fish
+	}
+	object(SNAPPER) {
+		$basic_fish
+	}
+	chance(50%) {
+		object(MARLIN1) {
+			$marlin
+		}
+	} chance(50%) {
+		object(MARLIN2) {
+			$marlin
+		}
+	}
+	object(SHORE_FISH) {
+		number_of_objects 25
+		set_scaling_to_map_size
+		min_distance_group_placement 5
+		set_gaia_object_only
+	}
+}

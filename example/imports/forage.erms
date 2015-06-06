@@ -1,0 +1,12 @@
+$forage = {
+	object(FORAGE) {
+		number_of_objects 6
+		group_placement_radius 3
+		set_tight_grouping
+		set_gaia_object_only
+		set_place_for_every_player
+		min_distance_to_players 10
+		max_distance_to_players 12
+		min_distance_group_placement 6
+	}
+}

@@ -1,0 +1,96 @@
+import "imports/standard.erms"
+import "imports/fish.erms"
+
+$watery_grave = map {
+	info {
+		name "Watery Grave"
+		$info
+	}
+	$player_section
+	$base = WATER
+	section(LAND) {
+		base_terrain $base
+		player_lands {
+			terrain_type DESERT
+			land_percent 100
+			base_size 9
+			set_zone_by_team
+			other_zone_avoidance_distance 10
+			border_fuzziness 15
+		}
+		land {
+			terrain_type $base
+			land_percent 100
+		}
+	}
+	section(ELEVATION) {
+		elevation(2) {
+			base_terrain DESERT
+			number_of_tiles 800
+			number_of_clumps 15
+			spacing 1
+			set_scale_by_groups
+		}
+	}
+	section(TERRAIN) {
+		terrain(MED_WATER) {
+			base_terrain $base
+			number_of_clumps 6
+			spacing_to_other_terrain_types 2
+			land_percent 15
+		}
+
+		terrain(DEEP_WATER) {
+			base_terrain MED_WATER
+			number_of_clumps 10
+			spacing_to_other_terrain_types 2
+			land_percent 10
+		}
+		terrain(FOREST) {
+			base_terrain DESERT
+			spacing_to_other_terrain_types 5
+			land_percent 9
+			number_of_clumps 4
+			set_avoid_player_start_areas     
+			set_scale_by_groups
+		}
+	}
+	section(CONNECTION) {
+		connect_all_players_land {
+			replace_terrain $base SHALLOW
+			replace_terrain MED_WATER SHALLOW
+			replace_terrain DEEP_WATER SHALLOW
+			terrain_cost $base 7
+			terrain_cost MED_WATER 9
+			terrain_cost DEEP_WATER 15
+			terrain_size $base 2 1
+			terrain_size MED_WATER 2 1
+			terrain_size DEEP_WATER 2 1
+		}
+	}
+	section(OBJECTS) {
+		def(BARE_STRAGGLERS)
+		def(NO_FORAGE)
+		$objects
+		$fish
+		$wrecks = {
+			number_of_objects 1
+			min_distance_to_players 25
+			temp_min_distance_group_placement 20
+			terrain_to_place_on SHALLOW
+		}
+		object(SHIPWRECK) {
+			$wrecks
+		}
+		object(SHIPWRECK2) {
+			$wrecks
+		}
+		object(SKELETON) {
+			number_of_objects 50
+			temp_min_distance_group_placement 20
+			terrain_to_place_on DESERT
+		}
+	}
+}
+
+$watery_grave

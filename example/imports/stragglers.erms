@@ -1,0 +1,42 @@
+$straggler_group_1 = {
+	number_of_objects 2
+	set_gaia_object_only
+	set_place_for_every_player
+	min_distance_to_players 4
+	max_distance_to_players 5
+	min_distance_group_placement 2
+}
+
+$straggler_group_2 = {
+	number_of_objects 3
+	set_gaia_object_only
+	set_place_for_every_player
+	min_distance_to_players 6
+	max_distance_to_players 8
+	min_distance_group_placement 2
+}
+
+$stragglers = {
+	if(PINE_STRAGGLERS) {
+		object(PINETREE) {
+			$straggler_group_1
+		}
+		object(PINETREE) {
+			$straggler_group_2
+		}
+	} elseif(BARE_STRAGGLERS) {
+		object(TREE_F) {
+			$straggler_group_1
+		}
+		object(TREE_I) {
+			$straggler_group_2
+		}
+	} else {
+		object(OAKTREE) {
+			$straggler_group_1
+		}
+		object(OAKTREE) {
+			$straggler_group_2
+		}
+	}
+}

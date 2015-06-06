@@ -1,0 +1,74 @@
+$sheep = {
+	object(SHEEP) {
+		number_of_objects 4
+		set_loose_grouping
+		set_gaia_object_only
+		set_place_for_every_player
+		min_distance_to_players    10
+		max_distance_to_players    12
+	}
+	object(SHEEP) {
+		number_of_objects 2
+		number_of_groups 2
+		set_loose_grouping
+		set_gaia_object_only
+		set_place_for_every_player
+		min_distance_to_players    14
+		max_distance_to_players    30
+	}
+}
+
+$deer = {
+	object(DEER) {
+		number_of_objects 4
+		group_variance 1
+		group_placement_radius 3
+		set_loose_grouping
+		set_gaia_object_only
+		set_place_for_every_player
+		min_distance_to_players 14
+		max_distance_to_players 30
+	}
+}
+
+$boars = {
+	$boar_attributes = {
+		number_of_objects 1
+		set_gaia_object_only
+		set_place_for_every_player
+		min_distance_to_players 16
+		max_distance_to_players 22
+	}
+	object(BOAR) {
+		$boar_attributes
+	}
+	object(BOAR) {
+		$boar_attributes
+		set_loose_grouping
+	}
+}
+
+$wolves = {
+	object(WOLF) {
+		number_of_objects 2
+		set_gaia_object_only
+		set_place_for_every_player
+		min_distance_to_players 30
+		max_distance_to_players 40
+	}
+}
+
+$hawks = {
+	object(HAWK) {
+		number_of_objects 6
+		set_scaling_to_map_size
+	}
+}
+
+$standard_animals = {
+	$sheep
+	$deer
+	$boars
+	$wolves
+	$hawks
+}
