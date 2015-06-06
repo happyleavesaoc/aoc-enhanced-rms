@@ -156,7 +156,9 @@ if(P or (Q or (Z or X))) {
 ```
 
 #### Variables
-Enhanced RMS variables are placeholders for substitutions. No operations besides assignment can be performed on a variable. Assignments can take the following forms:
+Enhanced RMS variables are placeholders for substitutions. No operations besides assignment can be performed on a variable. Variables may be referenced for substitution before they are assigned.
+
+Assignments can take the following forms:
 
 Assignment of an integer
 ```
@@ -198,6 +200,19 @@ Substitution in a `def`
 $label = EXAMPLE
 def($label) // output: #define EXAMPLE
 ```
+Substitution in a function
+```
+$label = EXAMPLE
+object($label) {
+  ...
+}
+/* output:
+create_object EXAMPLE
+{
+  ...
+}
+*/
+```
 Substitution as a statement
 ```
 $example = {
@@ -211,7 +226,7 @@ $example // output: set_something
 ```
 import "path/to/file.erms"
 ```
-Importing an .erms file will merge variables in the file at the specified path into the current file. There must not be any conflicting variable names. An imported file will not affect the compiler output unless the variables it contains are referenced.
+Importing an .erms file will merge variables in the file at the specified path into the current file. If there is a conflicting variable name, the last assignment takes precedence. A file can be imported more than once. An imported file will not affect the compiler output unless the variables it contains are referenced.
 
 #### Info
 ```
